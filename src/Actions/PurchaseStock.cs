@@ -11,6 +11,7 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ("2. Pig");
             Console.WriteLine ("3. Goat");
             Console.WriteLine ("4. Ostrich");
+            Console.WriteLine ("5. Sheep");
 
             Console.WriteLine ();
             Console.WriteLine ("What are you buying today?");
@@ -22,8 +23,19 @@ namespace Trestlebridge.Actions {
                 case 1:
                     ChooseGrazingField.CollectInput (farm, new Cow ());
                     break;
-                default:
+                case 2:
+                    ChooseGrazingField.CollectInput (farm, new Pig ());
                     break;
+                case 3:
+                    ChooseGrazingField.CollectInput (farm, new Goat ());
+                    break;
+                case 4:
+                    ChooseGrazingField.CollectInput (farm, new Ostrich ());
+                    break;
+                case 5:
+                    ChooseGrazingField.CollectInput (farm, new Sheep ());
+                    break;
+
             }
         }
     }
