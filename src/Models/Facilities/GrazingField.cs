@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Trestlebridge.Interfaces;
 
@@ -18,12 +19,15 @@ namespace Trestlebridge.Models.Facilities {
 
         public void AddResource (IGrazing animal) {
             // TODO: implement this...
-            throw new NotImplementedException ();
+            _animals.Add (animal);
+            // throw new NotImplementedException ();
         }
 
         public void AddResource (List<IGrazing> animals) {
+
             // TODO: implement this...
-            throw new NotImplementedException ();
+
+            // throw new NotImplementedException ();
         }
 
         public override string ToString () {
