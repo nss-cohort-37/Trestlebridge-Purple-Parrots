@@ -25,7 +25,14 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            farm.ChickenHouses[choice - 1].AddResource(animal);
+            if (farm.ChickenHouses[choice - 1].CurrentCapacity > 0)
+            {
+                farm.ChickenHouses[choice - 1].AddResource(animal);
+            }
+            else
+            {
+                Console.WriteLine("This chicken house is full.");
+            }
 
             /*
                 Couldn't get this to work. Can you?

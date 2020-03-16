@@ -26,12 +26,14 @@ namespace Trestlebridge.Actions
             int choice = Int32.Parse(Console.ReadLine());
 
 
-            // if (grazingFieldCapacity) {
-            farm.GrazingFields[choice - 1].AddResource(animal);
-            // Console.WriteLine(grazingFieldReport);
-            // } else {
-            //     Console.WriteLine ("all full");
-            // }
+            if (farm.GrazingFields[choice - 1].CurrentCapacity > 0)
+            {
+                farm.GrazingFields[choice - 1].AddResource(animal);
+            }
+            else
+            {
+                Console.WriteLine("This grazing field is full.");
+            }
             /*
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.

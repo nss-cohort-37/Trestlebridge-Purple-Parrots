@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class GrazingField : IFacility<IGrazing>
     {
-        private int _capacity = 2;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
         private List<IGrazing> _animals = new List<IGrazing>();
@@ -18,6 +18,14 @@ namespace Trestlebridge.Models.Facilities
             get
             {
                 return _capacity;
+            }
+        }
+
+        public double CurrentCapacity
+        {
+            get
+            {
+                return _capacity - _animals.Count;
             }
         }
 
@@ -35,6 +43,7 @@ namespace Trestlebridge.Models.Facilities
             // TODO: implement this...
             // throw new NotImplementedException ();
         }
+
 
 
         public override string ToString()

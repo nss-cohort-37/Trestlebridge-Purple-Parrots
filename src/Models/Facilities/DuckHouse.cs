@@ -21,6 +21,15 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public double CurrentCapacity
+        {
+            get
+            {
+                return _capacity - _animals.Count;
+            }
+        }
+
+
         public void AddResource(IDuckHouse animal)
         {
             // TODO: implement this...
