@@ -26,13 +26,13 @@ namespace Trestlebridge.Actions
                     farm.AddGrazingField(new GrazingField());
                     Console.WriteLine("You have selected a facility");
                     break;
-                case 2:
-                    farm.AddChickenHouse(new ChickenHouse());
-                    Console.WriteLine("You have created a chicken house");
-                    break;
                 case 3:
                     farm.AddDuckHouse(new DuckHouse());
                     Console.WriteLine("You have selected a facility");
+                    break;
+                case 4:
+                    farm.AddChickenHouse(new ChickenHouse());
+                    Console.WriteLine("You have created a chicken house");
                     break;
                 default:
                     break;
