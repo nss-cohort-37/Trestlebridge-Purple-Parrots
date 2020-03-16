@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class DuckHouse : IFacility<IDuckHouse>
     {
-        private int _capacity = 50;
+        private int _capacity = 5;
         private Guid _id = Guid.NewGuid();
 
         private List<IDuckHouse> _animals = new List<IDuckHouse>();
@@ -41,7 +41,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Duck House {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Duck House {shortId} has {this._animals.Count} animals\n and {this._capacity - this._animals.Count} spaces left.");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
