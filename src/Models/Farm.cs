@@ -7,6 +7,7 @@ using Trestlebridge.Models.Facilities;
 namespace Trestlebridge.Models {
     public class Farm {
         public List<GrazingField> GrazingFields { get; } = new List<GrazingField> ();
+        public List<ChickenHouse> ChickenHouse { get; } = new List<ChickenHouse> ();
 
         /*
             This method must specify the correct product interface of the
@@ -18,6 +19,9 @@ namespace Trestlebridge.Models {
                 case "Cow":
                     GrazingFields[index].AddResource ((IGrazing) resource);
                     break;
+                case "Chicken":
+                    ChickenHouse[index].AddResource ((IMeatProducing) resource);
+                    break;
                 default:
                     break;
             }
@@ -27,11 +31,15 @@ namespace Trestlebridge.Models {
             GrazingFields.Add (field);
         }
 
+        public void AddChickenHouse (ChickenHouse house) {
+            ChickenHouse.Add (house);
+        }
+
         public override string ToString () {
             StringBuilder report = new StringBuilder ();
 
             GrazingFields.ForEach (gf => report.Append (gf));
-
+            ChickenHouse.ForEach (ch => report.Append (ch));
             return report.ToString ();
         }
     }
