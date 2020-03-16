@@ -51,9 +51,10 @@ namespace Trestlebridge.Models
         //     PlowedFields.Add (field);
         // }
 
-        // public void AddDuckHouse (DuckHouse duckHouse) {
-        //     DuckHouses.Add (duckHouse);
-        // }
+        public void AddDuckHouse(DuckHouse duckHouse)
+        {
+            DuckHouses.Add(duckHouse);
+        }
         // public void AddChickenHouse (ChickenHouse chickenHouse) {
         //     ChickenHouses.Add (chickenHouse);
         // }
@@ -66,7 +67,7 @@ namespace Trestlebridge.Models
             // NaturalFields.ForEach (nf => report.Append (nf));
             // PlowedFields.ForEach (pf => report.Append (pf));
             // ChickenHouses.ForEach (ch => report.Append (ch));
-            // DuckHouses.ForEach (dh => report.Append (dh));
+            DuckHouses.ForEach(dh => report.Append(dh));
             return report.ToString();
         }
     }
