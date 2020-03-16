@@ -8,11 +8,11 @@ namespace Trestlebridge.Actions
 {
     public class ChooseDuckHouse
     {
-        public static void CollectInput(Duck duck, IDuckHouse animal)
+        public static void CollectInput(Farm farm, IDuckHouse animal)
         {
             // Utils.Clear();
 
-            for (int i = 0; i < duck.DuckHouse.Count; i++)
+            for (int i = 0; i < farm.DuckHouses.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. Duck House");
             }
@@ -25,7 +25,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            duck.DuckHouse[choice - 1].AddResource(animal);
+            farm.DuckHouses[choice - 1].AddResource(animal);
 
             /*
                 Couldn't get this to work. Can you?
