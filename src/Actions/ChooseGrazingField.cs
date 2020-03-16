@@ -12,19 +12,32 @@ namespace Trestlebridge.Actions
         {
             // Utils.Clear();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. Grazing Field");
-            }
+            // for (int i = 0; i < farm.GrazingFields.Count; i++)
+            // {
+            //     Console.WriteLine($"{i + 1}. Grazing Field");
+            //     Console.Write($"There {} animals ");
+            // }
 
-            Console.WriteLine();
+            // Console.WriteLine();
 
             // How can I output the type of animal chosen here?
             Console.WriteLine($"Place the animal where?");
 
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+            // Console.Write("> ");
 
+            static void GrazingFieldSelect(Farm farm, IResource animal)
+            {
+                var createdFields = farm.GrazingFields.Where(field => field.CurrentCapacity).ToList();
+                for (int i = 0; i < createdFields.Count(); i++)
+                {
+
+                    Console.WriteLine($"{i + 1}. Grazing field {createdFields[i].ShortId} has {createdFields[i].AnimalCount} animals");
+
+                }
+                GrazingFieldSelect(farm, animal);
+            }
+
+            int choice = Int32.Parse(Console.ReadLine());
 
             if (farm.GrazingFields[choice - 1].CurrentCapacity > 0)
             {
@@ -34,6 +47,7 @@ namespace Trestlebridge.Actions
             {
                 Console.WriteLine("This grazing field is full.");
             }
+
             /*
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.
@@ -41,5 +55,6 @@ namespace Trestlebridge.Actions
             // farm.PurchaseResource<IGrazing>(animal, choice);
 
         }
+
     }
 }
