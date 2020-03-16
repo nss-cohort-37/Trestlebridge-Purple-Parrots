@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class ChickenHouse : IFacility<IMeatProducing>
     {
-        private int _capacity = 5;
+        private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
 
         private List<IMeatProducing> _animals = new List<IMeatProducing>();
@@ -19,7 +19,6 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity;
             }
         }
-
         public double CurrentCapacity
         {
             get
@@ -36,7 +35,7 @@ namespace Trestlebridge.Models.Facilities
             // throw new NotImplementedException ();
         }
 
-        public void AddResource(List<IMeatProducing> chicken)
+        public void AddResource(List<IMeatProducing> animal)
         {
             // TODO: implement this...
             // throw new NotImplementedException ();
@@ -47,7 +46,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Chicken house {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Chicken house {shortId} has {this._animals.Count} animals\n and {this._capacity - this._animals.Count} spaces left.");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
