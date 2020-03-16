@@ -6,15 +6,15 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
-    public class ChooseGrazingField
+    public class ChooseChickenHouse
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput(Farm farm, IMeatProducing animal)
         {
             // Utils.Clear();
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                Console.WriteLine($"{i + 1}. Chicken House");
             }
 
             Console.WriteLine();
@@ -25,13 +25,8 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
+            farm.ChickenHouses[choice - 1].AddResource(animal);
 
-            // if (grazingFieldCapacity) {
-            farm.GrazingFields[choice - 1].AddResource(animal);
-            // Console.WriteLine(grazingFieldReport);
-            // } else {
-            //     Console.WriteLine ("all full");
-            // }
             /*
                 Couldn't get this to work. Can you?
                 Stretch goal. Only if the app is fully functional.
