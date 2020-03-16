@@ -8,7 +8,7 @@ namespace Trestlebridge.Models.Facilities
 {
     public class DuckHouse : IFacility<IDuckHouse>
     {
-        private int _capacity = 5;
+        private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
         private List<IDuckHouse> _animals = new List<IDuckHouse>();
@@ -27,7 +27,13 @@ namespace Trestlebridge.Models.Facilities
             _animals.Add(animal);
             // throw new NotImplementedException ();
         }
-
+        public double CurrentCapacity
+        {
+            get
+            {
+                return _capacity - _animals.Count;
+            }
+        }
         public void AddResource(List<IDuckHouse> animals)
         {
 
@@ -47,4 +53,8 @@ namespace Trestlebridge.Models.Facilities
             return output.ToString();
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
