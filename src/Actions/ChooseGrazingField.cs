@@ -11,29 +11,29 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm, IGrazing animal)
         {
-            // Utils.Clear();
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
-
             {
                 foreach (var field in farm.GrazingFields)
                 {
                     Console.WriteLine($"{1 + i++}. Grazing Field, currently has {field.Capacity - field.CurrentCapacity} animals");
                     if (field._animals.Count > 0)
                     {
-                        foreach (var animalGroup in field._animals)
+                        foreach (var singleAnimal in field._animals.GroupBy(a => a.GetType().Name))
                         {
-                            Console.WriteLine(animalGroup.GetType());
+                            Console.WriteLine($"Contains {singleAnimal.Count()} {singleAnimal.Key}");
+
+                            // if (singleAnimal.Count() > 0) { Console.Write("'s"); }
                         }
                     }
                 }
             }
+
             // How can I output the type of animal chosen here?
             Console.WriteLine($"Place the animal where?");
 
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
-
 
             if (farm.GrazingFields[choice - 1].CurrentCapacity > 0)
             {
@@ -43,12 +43,6 @@ namespace Trestlebridge.Actions
             {
                 Console.WriteLine("This grazing field is full.");
             }
-            /*
-                Couldn't get this to work. Can you?
-                Stretch goal. Only if the app is fully functional.
-             */
-            // farm.PurchaseResource<IGrazing>(animal, choice);
-
         }
     }
 }
