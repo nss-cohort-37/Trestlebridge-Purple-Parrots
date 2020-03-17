@@ -26,6 +26,10 @@ namespace Trestlebridge.Actions
                     farm.AddGrazingField(new GrazingField());
                     Console.WriteLine("You have selected a facility");
                     break;
+                case 2:
+                    farm.AddPlowedField(new PlowedField());
+                    Console.WriteLine("You have added a plowed field");
+                    break;
                 case 3:
                     farm.AddDuckHouse(new DuckHouse());
                     Console.WriteLine("You have selected a facility");
