@@ -3,21 +3,20 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Plants
 {
-  public class Sesame : IResource, ISeedProducing, INatural, IPlowing
+  public class Wildflower : IResource, ISeedProducing, INatural
   {
     public double NaturalGrass { get; set; }
     private int _seedsProduced = 40;
-    public string Type { get; } = "Sesame";
+    public string Type { get; } = "Wildflower";
 
-    public double Rows { get; set; }
-    public double Plants { get; set; }
     public double Harvest()
     {
       return _seedsProduced;
     }
+
     public override string ToString()
     {
-      return $"Sesame. Yum!";
+      return $"Wildflower. Yum!";
     }
   }
 }
