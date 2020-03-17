@@ -2,13 +2,13 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
   public class ChooseNaturalField
   {
-    public static void CollectInput(Farm farm, INatural seed)
+    public static void CollectInput(Farm farm, INatural row)
     {
 
       for (int i = 0; i < farm.NaturalFields.Count; i++)
@@ -31,7 +31,7 @@ namespace Trestlebridge.Actions
 
       if (farm.NaturalFields[choice - 1].CurrentCapacity > 0)
       {
-        farm.NaturalFields[choice - 1].AddResource(seed);
+        farm.NaturalFields[choice - 1].AddResource(row);
       }
       else
       {
