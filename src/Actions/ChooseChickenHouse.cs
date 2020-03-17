@@ -18,10 +18,10 @@ namespace Trestlebridge.Actions
             }
             // added new code below
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
 
-                foreach (var field in farm.GrazingFields)
+                foreach (var field in farm.ChickenHouses)
                 {
                     // Console.WriteLine($"{1 + i++}.  Grazing Field {field.CurrentCapacity}");
                     Console.WriteLine($"{1 + i++}.  Grazing Field, currently has {field.Capacity - field.CurrentCapacity} animals");
