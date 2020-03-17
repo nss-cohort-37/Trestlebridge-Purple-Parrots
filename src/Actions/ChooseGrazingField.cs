@@ -21,9 +21,8 @@ namespace Trestlebridge.Actions
                     {
                         foreach (var singleAnimal in field._animals.GroupBy(a => a.GetType().Name))
                         {
-                            Console.WriteLine($"Contains {singleAnimal.Count()} {singleAnimal.Key}");
-
-                            // if (singleAnimal.Count() > 0) { Console.Write("'s"); }
+                            Console.Write($" - Contains {singleAnimal.Count()} {singleAnimal.Key}");
+                            if (singleAnimal.Count() > 1) { Console.Write("s" + "\n"); } else { Console.Write("\n"); }
                         }
                     }
                 }
