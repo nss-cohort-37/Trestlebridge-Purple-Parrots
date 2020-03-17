@@ -12,9 +12,16 @@ namespace Trestlebridge.Actions
         {
             // Utils.Clear();
 
+            // added new code below
+
             for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Chicken House");
+
+                foreach (var field in farm.ChickenHouses)
+                {
+                    // Console.WriteLine($"{1 + i++}.  Grazing Field {field.CurrentCapacity}");
+                    Console.WriteLine($"{1 + i++}.  Chicken House, currently has {field.Capacity - field.CurrentCapacity} animals");
+                }
             }
 
             Console.WriteLine();
