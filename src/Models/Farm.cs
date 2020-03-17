@@ -14,8 +14,9 @@ namespace Trestlebridge.Models
     public List<ChickenHouse> ChickenHouses { get; } = new List<ChickenHouse>();
 
     public List<NaturalField> NaturalFields { get; } = new List<NaturalField>();
+    public List<PlowedField> PlowedFields { get; } = new List<PlowedField>();
 
-    // public List<PlowedField> PlowedFields { get; } = new List<PlowedField> ();
+
 
 
 
@@ -53,6 +54,10 @@ namespace Trestlebridge.Models
     }
 
 
+    public void AddPlowedField(PlowedField field)
+    {
+      PlowedFields.Add(field);
+    }
 
     public void AddDuckHouse(DuckHouse duckHouse)
     {
@@ -64,13 +69,16 @@ namespace Trestlebridge.Models
       ChickenHouses.Add(chickenHouse);
     }
 
+
+
+
     public override string ToString()
     {
       StringBuilder report = new StringBuilder();
 
       GrazingFields.ForEach(gf => report.Append(gf));
       NaturalFields.ForEach(nf => report.Append(nf));
-      // PlowedFields.ForEach (pf => report.Append (pf));
+      PlowedFields.ForEach(pf => report.Append(pf));
       ChickenHouses.ForEach(ch => report.Append(ch));
       DuckHouses.ForEach(dh => report.Append(dh));
       return report.ToString();

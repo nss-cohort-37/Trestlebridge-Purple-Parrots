@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities
     private int _capacity = 50;
     private Guid _id = Guid.NewGuid();
 
-    private List<INatural> _seeds = new List<INatural>();
+    private List<INatural> _rows = new List<INatural>();
 
     public double Capacity
     {
@@ -21,14 +21,14 @@ namespace Trestlebridge.Models.Facilities
       }
     }
 
-    public void AddResource(INatural seed)
+    public void AddResource(INatural row)
     {
       // TODO: implement this...
-      _seeds.Add(seed);
+      _rows.Add(row);
       // throw new NotImplementedException ();
     }
 
-    public void AddResource(List<INatural> seed)
+    public void AddResource(List<INatural> row)
     {
       // TODO: implement this...
       // throw new NotImplementedException ();
@@ -38,7 +38,7 @@ namespace Trestlebridge.Models.Facilities
     {
       get
       {
-        return _capacity - _seeds.Count;
+        return _capacity - _rows.Count;
       }
     }
 
@@ -49,8 +49,8 @@ namespace Trestlebridge.Models.Facilities
     {
       StringBuilder output = new StringBuilder();
       string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-      output.Append($"Natural field {shortId} has {this._seeds.Count} seeds\n and {this._capacity - this._seeds.Count} spaces left.");
-      this._seeds.ForEach(a => output.Append($"   {a}\n"));
+      output.Append($"Natural field {shortId} has {this._rows.Count} seeds\n and {this._capacity - this._rows.Count} spaces left.");
+      this._rows.ForEach(a => output.Append($"   {a}\n"));
 
       return output.ToString();
     }
