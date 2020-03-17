@@ -6,12 +6,12 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-    public class DuckHouse : IFacility<IDuckHouse>
+    public class NaturalField : IFacility<INatural>
     {
-        private int _capacity = 2;
+        private int _capacity = 50;
         private Guid _id = Guid.NewGuid();
 
-        private List<IDuckHouse> _animals = new List<IDuckHouse>();
+        private List<INatural> _animals = new List<INatural>();
 
         public double Capacity
         {
@@ -21,12 +21,19 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-        public void AddResource(IDuckHouse animal)
+        public void AddResource(INatural animal)
         {
             // TODO: implement this...
             _animals.Add(animal);
             // throw new NotImplementedException ();
         }
+
+        public void AddResource(List<INatural> animal)
+        {
+            // TODO: implement this...
+            // throw new NotImplementedException ();
+        }
+
         public double CurrentCapacity
         {
             get
@@ -34,20 +41,15 @@ namespace Trestlebridge.Models.Facilities
                 return _capacity - _animals.Count;
             }
         }
-        public void AddResource(List<IDuckHouse> animals)
-        {
 
-            // TODO: implement this...
 
-            // throw new NotImplementedException ();
-        }
+
 
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-
-            output.Append($"Duck House {shortId} has {this._animals.Count} animals\n and {this._capacity - this._animals.Count} spaces left.");
+            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n and {this._capacity - this._animals.Count} spaces left.");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();

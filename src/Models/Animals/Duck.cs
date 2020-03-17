@@ -6,7 +6,6 @@ namespace Trestlebridge.Models.Animals
 {
     public class Duck : IDuckHouse, IResource
     {
-
         private Guid _id = Guid.NewGuid();
 
         private string _shortId
@@ -16,7 +15,6 @@ namespace Trestlebridge.Models.Animals
                 return this._id.ToString().Substring(this._id.ToString().Length - 6);
             }
         }
-
         public double WetFeet { get; set; }
         public int EggQuantity { get; set; } = 6;
         public string Type { get; } = "Duck";

@@ -6,18 +6,18 @@ using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
-    public class ChooseGrazingField
+    public class ChooseNaturalField
     {
-        public static void CollectInput(Farm farm, IGrazing animal)
+        public static void CollectInput(Farm farm, INatural animal)
         {
 
-            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            for (int i = 0; i < farm.NaturalFields.Count; i++)
 
             {
 
-                foreach (var field in farm.GrazingFields)
+                foreach (var field in farm.NaturalFields)
                 {
-                    Console.WriteLine($"{1 + i++}.  Grazing Field, currently has {field.Capacity - field.CurrentCapacity} animals");
+                    Console.WriteLine($"{1 + i++}.  Natural Field, currently has {field.Capacity - field.CurrentCapacity} animals");
                 }
             }
 
@@ -29,9 +29,9 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            if (farm.GrazingFields[choice - 1].CurrentCapacity > 0)
+            if (farm.NaturalFields[choice - 1].CurrentCapacity > 0)
             {
-                farm.GrazingFields[choice - 1].AddResource(animal);
+                farm.NaturalFields[choice - 1].AddResource(animal);
             }
             else
             {
