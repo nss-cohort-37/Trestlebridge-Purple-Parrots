@@ -4,7 +4,7 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Animals
 {
-    public class Ostrich : IResource, IGrazing, IMeatProducing
+    public class Ostrich : IResource, INatural, IMeatProducing
     {
 
         private Guid _id = Guid.NewGuid();
@@ -18,13 +18,13 @@ namespace Trestlebridge.Models.Animals
             }
         }
 
-        public double GrassPerDay { get; set; } = 2.3;
+        public double NaturalGrass { get; set; }
         public string Type { get; } = "Ostrich";
 
         // Methods
         public void Graze()
         {
-            Console.WriteLine($"Ostrich {this._shortId} just ate {this.GrassPerDay}kg of grass");
+            Console.WriteLine($"Ostrich {this._shortId} lives on kg of {this.NaturalGrass}");
         }
 
         public double Butcher()
