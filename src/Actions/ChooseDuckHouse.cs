@@ -23,7 +23,22 @@ namespace Trestlebridge.Actions
                 }
             }
 
-            Console.WriteLine();
+
+            for (int i = 0; i < farm.DuckHouses.Count; i++)
+            {
+                foreach (var house in farm.DuckHouses)
+                {
+                    Console.WriteLine($"{1 + i++}. Duck house, currently has {house.Capacity - house.CurrentCapacity} animals");
+                    if (house._animals.Count > 0)
+                    {
+                        foreach (var singleAnimal in house._animals.GroupBy(a => a.GetType().Name))
+                        {
+                            Console.Write($" - Contains {singleAnimal.Count()} {singleAnimal.Key}");
+                            if (singleAnimal.Count() > 1) { Console.Write("s" + "\n"); } else { Console.Write("\n"); }
+                        }
+                    }
+                }
+            }
 
             // How can I output the type of animal chosen here?
             Console.WriteLine($"Place the animal where?");

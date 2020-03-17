@@ -6,50 +6,50 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities
 {
-  public class PlowedField : IFacility<IPlowing>
-  {
-    private int _capacity = 13;
-    private Guid _id = Guid.NewGuid();
-
-    private List<IPlowing> _rows = new List<IPlowing>();
-
-    public double Capacity
+    public class PlowedField : IFacility<IPlowing>
     {
-      get
-      {
-        return _capacity;
-      }
-    }
+        private int _capacity = 13;
+        private Guid _id = Guid.NewGuid();
 
-    public void AddResource(IPlowing row)
-    {
-      // TODO: implement this...
-      _rows.Add(row);
-      // throw new NotImplementedException ();
-    }
+        public List<IPlowing> _rows = new List<IPlowing>();
 
-    public void AddResource(List<IPlowing> row)
-    {
-      // TODO: implement this...
-      // throw new NotImplementedException ();
-    }
+        public double Capacity
+        {
+            get
+            {
+                return _capacity;
+            }
+        }
 
-    public double CurrentCapacity
-    {
-      get
-      {
-        return _capacity - _rows.Count;
-      }
-    }
+        public void AddResource(IPlowing row)
+        {
+            // TODO: implement this...
+            _rows.Add(row);
+            // throw new NotImplementedException ();
+        }
 
-    public override string ToString()
-    {
-      StringBuilder output = new StringBuilder();
-      string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-      output.Append($"Plowed field {shortId} has {this._rows.Count} used rows\n and {this._capacity - this._rows.Count} spaces left.");
-      this._rows.ForEach(r => output.Append($"   {r}\n"));
+        public void AddResource(List<IPlowing> row)
+        {
+            // TODO: implement this...
+            // throw new NotImplementedException ();
+        }
 
-      return output.ToString();
+        public double CurrentCapacity
+        {
+            get
+            {
+                return _capacity - _rows.Count;
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder output = new StringBuilder();
+            string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            output.Append($"Plowed field {shortId} has {this._rows.Count} used rows\n and {this._capacity - this._rows.Count} spaces left.");
+            this._rows.ForEach(r => output.Append($"   {r}\n"));
+
+            return output.ToString();
+        }
     }
-  }
 }

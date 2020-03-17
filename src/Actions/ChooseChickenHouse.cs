@@ -13,18 +13,21 @@ namespace Trestlebridge.Actions
             // Utils.Clear();
 
             // added new code below
-
             for (int i = 0; i < farm.ChickenHouses.Count; i++)
             {
-
-                foreach (var field in farm.ChickenHouses)
+                foreach (var house in farm.ChickenHouses)
                 {
-                    // Console.WriteLine($"{1 + i++}.  Grazing Field {field.CurrentCapacity}");
-                    Console.WriteLine($"{1 + i++}.  Chicken House, currently has {field.Capacity - field.CurrentCapacity} animals");
+                    Console.WriteLine($"{1 + i++}. Chicken house, currently has {house.Capacity - house.CurrentCapacity} animals");
+                    if (house._animals.Count > 0)
+                    {
+                        foreach (var singleAnimal in house._animals.GroupBy(a => a.GetType().Name))
+                        {
+                            Console.Write($" - Contains {singleAnimal.Count()} {singleAnimal.Key}");
+                            if (singleAnimal.Count() > 1) { Console.Write("s" + "\n"); } else { Console.Write("\n"); }
+                        }
+                    }
                 }
             }
-
-            Console.WriteLine();
 
             // How can I output the type of animal chosen here?
             Console.WriteLine($"Place the animal where?");
