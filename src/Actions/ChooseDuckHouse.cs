@@ -24,7 +24,7 @@ namespace Trestlebridge.Actions
 
                 foreach (var field in farm.GrazingFields)
                 {
-                    Console.WriteLine($"{1 + i++}.  Grazing Field {field.CurrentCapacity}");
+                    Console.WriteLine($"{1 + i++}.  Grazing Field, currently has {field.Capacity - field.CurrentCapacity} animals");
                 }
             }
 
