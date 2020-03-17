@@ -3,8 +3,9 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Plants
 {
-  public class Sunflower : IResource, ISeedProducing
+  public class Sunflower : IResource, ISeedProducing, INatural
   {
+    public double NaturalGrass { get; set; }
     private int _seedsProduced = 40;
     public string Type { get; } = "Sunflower";
 

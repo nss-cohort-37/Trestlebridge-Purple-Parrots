@@ -47,9 +47,9 @@ namespace Trestlebridge.Models
       NaturalFields.Add(field);
     }
 
-    public void AddNaturalField(NaturalField field)
+    public void AddGrazingField(GrazingField grazingField)
     {
-      NaturalFields.Add(field);
+      GrazingFields.Add(grazingField);
     }
 
 
