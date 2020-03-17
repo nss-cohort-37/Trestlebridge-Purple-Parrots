@@ -17,6 +17,17 @@ namespace Trestlebridge.Actions
                 Console.WriteLine($"{i + 1}. Duck House");
             }
 
+            // added new code below
+
+            for (int i = 0; i < farm.GrazingFields.Count; i++)
+            {
+
+                foreach (var field in farm.GrazingFields)
+                {
+                    Console.WriteLine($"{1 + i++}.  Grazing Field {field.CurrentCapacity}");
+                }
+            }
+
             Console.WriteLine();
 
             // How can I output the type of animal chosen here?
